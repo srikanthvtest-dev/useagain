@@ -1,0 +1,322 @@
+[
+    {
+        "id": "1",
+        "title": "Fisher-Price Musical Activity Gym",
+        "category": "toys",
+        "condition": "Good",
+        "description": "Colorful activity gym perfect for infants 0-12 months. All attachments intact, clean and sanitized. Ideal for tummy time and sensory development.",
+        "images": [
+            "/assets/images/products/toys/toy1.jpg"
+        ],
+        "seller": "Priya Reddy",
+        "location": "Banjara Hills",
+        "city": "Hyderabad",
+        "listedDate": "2026-07-01",
+        "featured": true,
+        "forDonation": false
+    },
+    {
+        "id": "2",
+        "title": "Hero Sprint 20-inch Kids Bicycle",
+        "category": "bicycles",
+        "condition": "Very Good",
+        "description": "Lightly used kids bicycle suitable for ages 6-9. Tyres in excellent condition, brakes work perfectly. Minor paint scratches on the frame only.",
+        "images": [
+            "/assets/images/products/bicycles/bicycle1.jpg"
+        ],
+        "seller": "Kiran Sharma",
+        "location": "Jubilee Hills",
+        "city": "Hyderabad",
+        "listedDate": "2026-07-02",
+        "featured": true,
+        "forDonation": false
+    },
+    {
+        "id": "3",
+        "title": "NCERT Class 6-10 Complete Set",
+        "category": "books",
+        "condition": "Good",
+        "description": "Full set of NCERT textbooks for classes 6 through 10. Telugu medium. Lightly used with minimal pencil marks. Perfect for students.",
+        "images": [
+            "/assets/images/products/books/book1.jpg"
+        ],
+        "seller": "Anitha Rao",
+        "location": "Madhapur",
+        "city": "Hyderabad",
+        "listedDate": "2026-07-03",
+        "featured": false,
+        "forDonation": true
+    },
+    {
+        "id": "4",
+        "title": "Graco Infant Car Seat",
+        "category": "baby-products",
+        "condition": "Like New",
+        "description": "Barely used Graco infant car seat, suitable for newborns to 13 kg. All safety harnesses intact. Cover washed and clean. No accidents.",
+        "images": [
+            "/assets/images/products/baby-products/baby1.jpg"
+        ],
+        "seller": "Suresh Naidu",
+        "location": "Gachibowli",
+        "city": "Hyderabad",
+        "listedDate": "2026-07-04",
+        "featured": true,
+        "forDonation": false
+    },
+    {
+        "id": "5",
+        "title": "Yonex Badminton Racket Set (2 pcs)",
+        "category": "sports",
+        "condition": "Good",
+        "description": "Two Yonex badminton rackets with covers. Strings recently replaced. Ideal for casual play. Comes with a shuttle tube (half used).",
+        "images": [
+            "/assets/images/products/sports/sport1.jpg"
+        ],
+        "seller": "Ramesh Kulkarni",
+        "location": "Kondapur",
+        "city": "Hyderabad",
+        "listedDate": "2026-07-05",
+        "featured": true,
+        "forDonation": false
+    },
+    {
+        "id": "6",
+        "title": "Wooden 4-Seater Dining Table",
+        "category": "furniture",
+        "condition": "Good",
+        "description": "Solid teak wood dining table with 4 cushioned chairs. Minor surface scratches. Seats comfortably. Dimensions: 120cm x 75cm. Buyer must arrange pickup.",
+        "images": [
+            "/assets/images/products/furniture/furniture1.jpg"
+        ],
+        "seller": "Deepa Menon",
+        "location": "Hitech City",
+        "city": "Hyderabad",
+        "listedDate": "2026-07-06",
+        "featured": false,
+        "forDonation": false
+    },
+    {
+        "id": "7",
+        "title": "Lego Classic Brick Box 900 pcs",
+        "category": "toys",
+        "condition": "Good",
+        "description": "Classic Lego brick set, 900+ pieces in original box. All pieces present and counted. Great for creative play for ages 4+.",
+        "images": [
+            "/assets/images/products/toys/toy2.jpg"
+        ],
+        "seller": "Vijay Nair",
+        "location": "Kukatpally",
+        "city": "Hyderabad",
+        "listedDate": "2026-07-07",
+        "featured": false,
+        "forDonation": false
+    },
+    {
+        "id": "8",
+        "title": "BSA Champ 26-inch Adult Bicycle",
+        "category": "bicycles",
+        "condition": "Fair",
+        "description": "BSA Champ bicycle for adults. Recently serviced \u2014 chain oiled, brakes adjusted. Suitable for short commutes. Tyres may need replacement soon.",
+        "images": [
+            "/assets/images/products/bicycles/bicycle2.jpg"
+        ],
+        "seller": "Shalini Gupta",
+        "location": "Begumpet",
+        "city": "Hyderabad",
+        "listedDate": "2026-07-08",
+        "featured": false,
+        "forDonation": false
+    },
+    {
+        "id": "9",
+        "title": "Harry Potter Complete Series (7 Books)",
+        "category": "books",
+        "condition": "Good",
+        "description": "All 7 Harry Potter books in English. Bloomsbury editions. Well-read but intact. No torn pages. Great for young readers aged 10 and above.",
+        "images": [
+            "/assets/images/products/books/book2.jpg"
+        ],
+        "seller": "Arun Chandra",
+        "location": "Secunderabad",
+        "city": "Hyderabad",
+        "listedDate": "2026-07-09",
+        "featured": false,
+        "forDonation": false
+    },
+    {
+        "id": "10",
+        "title": "Mee Mee Baby Walker with Music",
+        "category": "baby-products",
+        "condition": "Very Good",
+        "description": "Mee Mee baby walker with music and lights. Adjustable height. Non-slip base. Used for 3 months only. All music functions working.",
+        "images": [
+            "/assets/images/products/baby-products/baby2.jpg"
+        ],
+        "seller": "Padma Venkat",
+        "location": "Ameerpet",
+        "city": "Hyderabad",
+        "listedDate": "2026-07-10",
+        "featured": false,
+        "forDonation": false
+    },
+    {
+        "id": "11",
+        "title": "Cosco Cricket Set (Junior)",
+        "category": "sports",
+        "condition": "Good",
+        "description": "Junior cricket set including bat, ball, stumps and bails. Suitable for ages 8-12. Bat has minor grip wear. Stumps and bails in perfect condition.",
+        "images": [
+            "/assets/images/products/sports/sport2.jpg"
+        ],
+        "seller": "Mohan Das",
+        "location": "Dilsukhnagar",
+        "city": "Hyderabad",
+        "listedDate": "2026-07-11",
+        "featured": false,
+        "forDonation": false
+    },
+    {
+        "id": "12",
+        "title": "Single Bed with Storage Drawer",
+        "category": "furniture",
+        "condition": "Good",
+        "description": "Wooden single bed with under-bed storage drawer. Mattress not included. Size: 36 x 72 inches. Solid build, minor scratches on headboard.",
+        "images": [
+            "/assets/images/products/furniture/furniture2.jpg"
+        ],
+        "seller": "Kavitha Pillai",
+        "location": "LB Nagar",
+        "city": "Hyderabad",
+        "listedDate": "2026-07-12",
+        "featured": false,
+        "forDonation": false
+    },
+    {
+        "id": "13",
+        "title": "Hot Wheels 50-Car Collector Case",
+        "category": "toys",
+        "condition": "Good",
+        "description": "50 Hot Wheels die-cast cars in a collector carry case. Various models and colors. Great condition, all cars present. Perfect for collectors aged 5+.",
+        "images": [
+            "/assets/images/products/toys/toy3.jpg"
+        ],
+        "seller": "Ravi Teja",
+        "location": "Miyapur",
+        "city": "Hyderabad",
+        "listedDate": "2026-07-10",
+        "featured": false,
+        "forDonation": false
+    },
+    {
+        "id": "14",
+        "title": "Philips Avent Manual Breast Pump",
+        "category": "baby-products",
+        "condition": "Like New",
+        "description": "Philips Avent manual breast pump, used only twice. Sterilized and cleaned. All parts included. BPA-free. Comes in original box.",
+        "images": [
+            "/assets/images/products/baby-products/baby3.jpg"
+        ],
+        "seller": "Swathi Reddy",
+        "location": "Nizampet",
+        "city": "Hyderabad",
+        "listedDate": "2026-07-09",
+        "featured": false,
+        "forDonation": false
+    },
+    {
+        "id": "15",
+        "title": "Strauss Yoga Mat with Carry Bag",
+        "category": "sports",
+        "condition": "Very Good",
+        "description": "6mm thick Strauss yoga mat, non-slip surface. Used for 6 months, washed and clean. Carry bag included. Ideal for home practice.",
+        "images": [
+            "/assets/images/products/sports/sport3.jpg"
+        ],
+        "seller": "Nandini Rao",
+        "location": "Uppal",
+        "city": "Hyderabad",
+        "listedDate": "2026-07-08",
+        "featured": false,
+        "forDonation": false
+    },
+    {
+        "id": "16",
+        "title": "Competitive Exam Books Bundle (UPSC)",
+        "category": "books",
+        "condition": "Good",
+        "description": "Bundle of 12 UPSC preparation books including Laxmikanth, Spectrum, and GS manuals. Highlighted sections only. Useful for serious aspirants.",
+        "images": [
+            "/assets/images/products/books/book3.jpg"
+        ],
+        "seller": "Srikanth Yadav",
+        "location": "Nacharam",
+        "city": "Hyderabad",
+        "listedDate": "2026-07-07",
+        "featured": false,
+        "forDonation": false
+    },
+    {
+        "id": "17",
+        "title": "Wooden Study Table with Shelf",
+        "category": "furniture",
+        "condition": "Very Good",
+        "description": "Solid wood study table with built-in shelf and drawer. Size: 90cm x 50cm. Perfect for students. Light wood finish, no major damage.",
+        "images": [
+            "/assets/images/products/furniture/furniture3.jpg"
+        ],
+        "seller": "Farida Begum",
+        "location": "Mehdipatnam",
+        "city": "Hyderabad",
+        "listedDate": "2026-07-06",
+        "featured": false,
+        "forDonation": false
+    },
+    {
+        "id": "18",
+        "title": "Barbie Dream House Playset",
+        "category": "toys",
+        "condition": "Good",
+        "description": "Barbie Dream House with 3 floors, elevator, and 70+ accessories. Some accessories missing but all major furniture pieces present. Great play value.",
+        "images": [
+            "/assets/images/products/toys/toy4.jpg"
+        ],
+        "seller": "Meera Iyer",
+        "location": "Abids",
+        "city": "Hyderabad",
+        "listedDate": "2026-07-05",
+        "featured": false,
+        "forDonation": false
+    },
+    {
+        "id": "19",
+        "title": "Decathlon Kids Balance Bike",
+        "category": "bicycles",
+        "condition": "Very Good",
+        "description": "Decathlon B-Twin balance bike for toddlers aged 2-4. No pedals \u2014 great for learning balance. Adjustable seat height. Minimal wear.",
+        "images": [
+            "/assets/images/products/bicycles/bicycle3.jpg"
+        ],
+        "seller": "Gopal Krishna",
+        "location": "Nampally",
+        "city": "Hyderabad",
+        "listedDate": "2026-07-04",
+        "featured": false,
+        "forDonation": false
+    },
+    {
+        "id": "20",
+        "title": "Johnson's Baby Care Gift Set",
+        "category": "baby-products",
+        "condition": "Like New",
+        "description": "Johnson's baby care gift set including lotion, shampoo, oil, and powder. Received as gift, mostly unused. Original packaging intact.",
+        "images": [
+            "/assets/images/products/baby-products/baby4.jpg"
+        ],
+        "seller": "Lakshmi Devi",
+        "location": "Charminar",
+        "city": "Hyderabad",
+        "listedDate": "2026-07-03",
+        "featured": false,
+        "forDonation": false
+    }
+]
