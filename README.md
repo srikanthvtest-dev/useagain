@@ -1,202 +1,99 @@
-# UseAgain — Second-Hand Marketplace for Hyderabad Families
+# UseAgain — Complete Application
 
-UseAgain is a sustainability-first marketplace where families in Hyderabad can buy affordable second-hand products and donate usable items to orphanages — free of cost.
+Everything is now one working codebase. This replaces all the separate module
+zips — you don't need to combine anything by hand anymore.
+
+## What's included and working end-to-end
+
+- **Homepage** (`index.php`) — hero, category cards, featured/latest products, stats, how it works, testimonials, donate banner, floating WhatsApp button
+- **Register / Login / Logout** — full user auth with CSRF, honeypot spam protection, rate limiting
+- **My Account** (`my-account.php`) — profile info + all of the user's own listings with status
+- **Post a Free Ad** (`post-product.php`) — sell/donate toggle, category→subcategory cascading dropdown, up to 10 photos (drag-and-drop, live preview), full validation
+- **Browse / Search** (`products.php`) — filter by category, subcategory, listing type, condition, price range, city; sort by newest/price/views; pagination
+- **Product Details** (`product-details.php`) — gallery, WhatsApp + call buttons, seller/location info, similar products
+- **Admin Login + Dashboard** (`admin/login.php`, `admin/dashboard.php`) — stats, recent pending listings, recent users
+- **Admin Product Moderation** (`admin/products.php`) — filter by status, approve, reject (with reason), delete
+- **Contact form** → saved to `contact_messages`
+- **About page**
+
+Every image uploaded through "Post a Free Ad" is validated (real MIME-type check, not just the filename), resized to a sane max dimension, and stored under `uploads/products/YYYY/MM/` — matching the schema exactly.
+
+## What's referenced but not yet built
+
+The admin sidebar links to a few pages that don't exist yet — clicking them will 404:
+`admin/categories.php`, `admin/users.php`, `admin/testimonials.php`, `admin/messages.php`,
+`admin/homepage-settings.php`, `admin/settings.php`. These are all "nice to have" admin
+management screens — the core buy/sell/donate/approve loop works completely without them.
+Say the word and I'll build any of these next.
 
 ---
 
-## 🚀 Getting Started
+## Installation (GoDaddy shared hosting or local)
 
-### Prerequisites
-- Node.js 18+
-- npm or yarn
+### 1. Upload the files
+Upload everything so `index.php` sits directly in `public_html` (or your local
+web root), keeping the folder structure intact.
 
-### Installation
+### 2. Create the database
+cPanel → MySQL Databases → create a database + user → add the user to the
+database with **All Privileges**. Then cPanel → phpMyAdmin → select your
+database → **Import** → choose `database/schema.sql` → Go.
 
-npm install
-npm run dev
+### 3. Configure the connection
+Edit `config/database.php`:
+```php
+define('DB_HOST', 'localhost');
+define('DB_NAME', 'yourcpaneluser_useagain');
+define('DB_USER', 'yourcpaneluser_dbuser');
+define('DB_PASS', 'your-password');
+```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+### 4. Configure site settings
+Edit `config/config.php` — update `CONTACT_EMAIL`, `WHATSAPP_NUMBER`,
+`CONTACT_PHONE_DISPLAY`. Set `APP_DEBUG` to `false` once everything works.
+
+### 5. Create your admin account
+Visit `database/create-admin.php` in your browser **once** — it refuses to
+run again after the first admin exists, so there's no risk of it being
+abused later. Fill in your name/email/password, then:
+- **Delete `database/create-admin.php` from the server.**
+- Log in at `/admin/login.php`.
+
+### 6. File permissions
+`uploads/` needs to be writable (755 is usually fine on GoDaddy) — the
+`YYYY/MM` subfolders are created automatically the first time someone
+posts a listing with photos.
+
+### 7. Test the full flow
+1. Register a user account at `/register.php`.
+2. Post an ad at `/post-product.php` with at least one photo.
+3. Log into `/admin/login.php` → **Products** → find your pending listing → **Approve**.
+4. Visit `/products.php` — your listing should now appear.
+5. Open it and confirm the WhatsApp button builds a working `wa.me` link.
 
 ---
 
-## 📁 Project Structure
+## Folder structure
 
+```
 useagain/
-├── data/
-│   └── products.json              ← All product data (edit this to add products)
-├── public/
-│   └── assets/
-│       └── images/
-│           └── products/
-│               ├── toys/          ← Toy product images
-│               ├── bicycles/      ← Bicycle images
-│               ├── books/         ← Book images
-│               ├── baby-products/ ← Baby product images
-│               ├── sports/        ← Sports equipment images
-│               └── furniture/     ← Furniture images
-├── src/
-│   ├── app/
-│   │   ├── page.tsx               ← Homepage
-│   │   ├── layout.tsx             ← Root layout
-│   │   ├── sitemap.ts
-│   │   ├── robots.ts
-│   │   ├── components/            ← Homepage section components
-│   │   ├── products/
-│   │   │   └── page.tsx           ← Products listing page
-│   │   ├── product-details/
-│   │   │   └── page.tsx           ← Product detail page
-│   │   ├── about/
-│   │   │   └── page.tsx
-│   │   ├── contact/
-│   │   │   └── page.tsx
-│   │   └── faq/
-│   │       └── page.tsx
-│   ├── components/
-│   │   ├── Header.tsx
-│   │   ├── Footer.tsx
-│   │   └── ProductCard.tsx
-│   └── styles/
-│       └── tailwind.css
-├── tailwind.config.js
-└── README.md
-
----
-
-## ➕ How to Add New Products (Non-Technical Guide)
-
-### Step 1: Add your product image
-
-Copy your product image into the correct category folder:
-
-| Category | Folder |
-|---|---|
-| Toys | `public/assets/images/products/toys/` |
-| Bicycles | `public/assets/images/products/bicycles/` |
-| Books | `public/assets/images/products/books/` |
-| Baby Products | `public/assets/images/products/baby-products/` |
-| Sports | `public/assets/images/products/sports/` |
-| Furniture | `public/assets/images/products/furniture/` |
-
-**Example:** If you're adding a toy, copy `my-toy-photo.jpg` into `public/assets/images/products/toys/my-toy-photo.jpg`
-
-**Image tips:**
-- Use JPG or PNG format
-- Recommended size: 800×600 pixels or larger
-- Keep file size under 500KB for fast loading
-- Use descriptive filenames (e.g., `red-bicycle-hero-26inch.jpg`)
-
----
-
-### Step 2: Add the product entry to products.json
-
-Open `data/products.json` and add a new entry at the end of the array (before the closing `]`):
-
-{
-  "id": "21",
-  "title": "Your Product Title Here",
-  "category": "toys",
-  "condition": "Good",
-  "description": "Detailed description of the product. Include key features, any defects, and why it's useful.",
-  "images": ["/assets/images/products/toys/my-toy-photo.jpg"],
-  "seller": "Seller Name",
-  "location": "Banjara Hills",
-  "city": "Hyderabad",
-  "listedDate": "2026-07-13",
-  "featured": false,
-  "forDonation": false
-}
-
-**Field Reference:**
-
-| Field | Description | Options |
-|---|---|---|
-| `id` | Unique ID (increment from last) | Any unique number as string |
-| `title` | Product name | Any text |
-| `category` | Product category | `toys`, `bicycles`, `books`, `baby-products`, `sports`, `furniture` |
-| `condition` | Item condition | `Like New`, `Very Good`, `Good`, `Fair` |
-| `description` | Full description | Any text (2-4 sentences recommended) |
-| `images` | Array of image paths | Paths starting with `/assets/images/products/...` |
-| `seller` | Seller's name | Any name |
-| `location` | Area in Hyderabad | e.g., `Banjara Hills`, `Gachibowli` |
-| `city` | City | `Hyderabad` |
-| `listedDate` | Date listed | Format: `YYYY-MM-DD` |
-| `featured` | Show on homepage | `true` or `false` |
-| `forDonation` | Free donation item | `true` or `false` |
-
----
-
-### Step 3: Save and verify
-
-Save `products.json`. If the development server is running (`npm run dev`), refresh the browser — your product will appear automatically.
-
-To make a product appear on the homepage Featured section, set `"featured": true`.
-
----
-
-## 🎨 Design System
-
-| Token | Value | Usage |
-|---|---|---|
-| `primary` | #2D6A4F | Forest green — CTAs, links, badges |
-| `secondary` | #52B788 | Medium green — accents, highlights |
-| `accent` | #1B4F72 | Trust blue — secondary CTAs |
-| `background` | #F8FAF9 | Page background |
-| `foreground` | #1A2E22 | Dark text, dark sections |
-| `muted` | #E8F5EE | Light green tint — card backgrounds |
-
----
-
-## 📞 Contact
-
-- **WhatsApp:** [9492060241](https://wa.me/919492060241)
-- **Email:** srikanth.v@useagain.in
-- **Location:** Hyderabad, Telangana
-
----
-
-## 📋 CHANGELOG
-
-### v1.0.0 — 2026-07-13
-
-**Initial Release**
-
-**New Files:**
-- `data/products.json` — 20 sample products from Hyderabad sellers
-- `src/app/page.tsx` — Homepage with Hero, Mission, Categories, Featured Products, How It Works, Testimonials, CTA
-- `src/app/layout.tsx` — Root layout with DM Serif Display + Plus Jakarta Sans fonts
-- `src/app/components/HeroSection.tsx` — Cinematic full-bleed hero with line-reveal animations
-- `src/app/components/MissionSection.tsx` — Impact stats + mission narrative
-- `src/app/components/CategoriesSection.tsx` — Asymmetric category bento grid
-- `src/app/components/FeaturedProductsSection.tsx` — Featured product cards
-- `src/app/components/HowItWorksSection.tsx` — 3-step process cards
-- `src/app/components/TestimonialsSection.tsx` — Community testimonials
-- `src/app/components/DonateCTASection.tsx` — WhatsApp donation CTA banner
-- `src/app/products/page.tsx` — Products listing with search, filter, sort, pagination
-- `src/app/product-details/page.tsx` — Product detail with gallery, info, WhatsApp enquiry
-- `src/app/about/page.tsx` — About page
-- `src/app/contact/page.tsx` — Contact page with form
-- `src/app/faq/page.tsx` — FAQ accordion
-- `src/app/sitemap.ts` — XML sitemap
-- `src/app/robots.ts` — Robots.txt
-- `src/components/Header.tsx` — Responsive header with mobile hamburger
-- `src/components/Footer.tsx` — Minimal footer (Pattern 2)
-- `src/components/ProductCard.tsx` — Reusable product card component
-- `src/styles/tailwind.css` — Design tokens + utility classes
-- `tailwind.config.js` — Tailwind configuration with custom tokens
-
-**Design Decisions:**
-- Green/blue/white theme reflecting sustainability and trust
-- DM Serif Display for headings (premium, distinctive)
-- Plus Jakarta Sans for body (clean, modern)
-- WhatsApp-first contact flow (no backend required)
-- "Available for Sale" shown instead of price on all products
-- Scroll-reveal animations using IntersectionObserver (no GSAP dependency)
-- Mobile hamburger menu with backdrop blur overlay
-
----
-
-## 🌱 Contributing
-
-To add new products, follow the "How to Add New Products" guide above.
-
-For code contributions, please test at 320px, 375px, 768px, and 1280px breakpoints before submitting.
+├── .htaccess
+├── config/                 config.php (site constants + BASE_URL), database.php (PDO)
+├── includes/
+│   ├── functions.php        All data-access + auth + security helpers (single source of truth)
+│   ├── image-upload.php     Product photo validation, resizing, storage
+│   ├── header.php / footer.php / navbar.php
+│   └── product-card.php     Reusable product card partial
+├── database/
+│   ├── schema.sql
+│   └── create-admin.php     ⚠️ Delete after first use
+├── assets/{css,js,images}/
+├── uploads/products/YYYY/MM/   Created automatically at runtime
+├── admin/
+│   ├── login.php / logout.php / dashboard.php / products.php
+│   └── includes/admin-header.php, admin-sidebar.php, admin-footer.php
+├── index.php, register.php, login.php, logout.php, my-account.php
+├── post-product.php, products.php, product-details.php
+├── ajax-subcategories.php   AJAX endpoint for the category→subcategory dropdown
+├── about.php, contact.php
+```

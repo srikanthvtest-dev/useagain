@@ -1,0 +1,20 @@
+# UseAgain — base Apache configuration (GoDaddy shared hosting)
+# This covers structural security for the folder layout; CSRF/XSS/session
+# hardening at the application level comes in the Security module.
+
+# Disable directory browsing everywhere
+Options -Indexes
+
+# Default document
+DirectoryIndex index.php
+
+# Block direct access to raw SQL dumps and config source if ever misrouted
+<FilesMatch "\.(sql|log|md)$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>
